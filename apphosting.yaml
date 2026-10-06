@@ -1,0 +1,27 @@
+# Firebase App Hosting configuration for Next.js 15
+# Documentation: https://firebase.google.com/docs/app-hosting/configure
+
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 80
+
+env:
+  - variable: NEXT_PUBLIC_FIREBASE_API_KEY
+    value: "AIzaSyBlz7LU6HNN4GlsYfmoQsORlO1dScMdsPc"
+  - variable: NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN
+    value: "etqan-1ez88.firebaseapp.com"
+  - variable: NEXT_PUBLIC_FIREBASE_PROJECT_ID
+    value: "etqan-1ez88"
+  - variable: NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
+    value: "etqan-1ez88.firebasestorage.app"
+  - variable: NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID
+    value: "410120828491"
+  - variable: NEXT_PUBLIC_FIREBASE_APP_ID
+    value: "1:410120828491:web:aff89ce2bd91d20de0ffce"
+  - variable: CLOUDFLARE_ACCOUNT_ID
+    value: "4be3c334eb823f0f8f9280f692bd8cf4"
+  - variable: CLOUDFLARE_D1_DATABASE_ID
+    value: "851b7cf2-dcfd-4d1d-a3de-f9fa8666abbc"

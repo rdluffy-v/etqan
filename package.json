@@ -6,22 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test": "node --test tests/*.test.mjs",
+    "deploy:hosting": "npx -y firebase-tools@latest deploy --only hosting",
+    "deploy:apphosting": "npx -y firebase-tools@latest apphosting:backends:create"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1145.0",
+    "canvas-confetti": "^1.9.4",
+    "firebase": "^12.19.0",
+    "hls.js": "^1.7.3",
+    "lucide-react": "^1.50.0",
+    "next": "15.5.27",
+    "qrcode.react": "^4.2.0",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.27"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.5.27",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
