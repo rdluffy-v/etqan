@@ -7,7 +7,10 @@ import {
   Search, 
   Clock, 
   Play, 
-  BookOpen
+  BookOpen,
+  SlidersHorizontal,
+  CheckCircle2,
+  Users
 } from 'lucide-react';
 import { MOCK_COURSES, TRACKS_INFO } from '@/lib/mock-data';
 import { Course } from '@/lib/types';
@@ -45,33 +48,33 @@ function CoursesContent() {
   });
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-14 space-y-10">
       {/* Page Header */}
-      <div className="space-y-3">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold">
-          <BookOpen className="w-3.5 h-3.5" />
+      <div className="space-y-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-bold">
+          <BookOpen className="w-4 h-4" />
           <span>فهرس المسارات التخصصية المعتمدة</span>
         </div>
-        <h1 className="text-3xl font-black text-slate-900 dark:text-white">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 dark:text-white tracking-tight">
           دليل الكورسات والدروس المصغرة (CQS ≤ 20 دقيقة)
         </h1>
-        <p className="text-xs sm:text-sm text-slate-500 max-w-2xl">
-          جميع الدروس مزودة بحماية العلامة المائية الجنائية، واختبارات فحص الفهم السريعة، وبيئات الكود والمحاكاة التفاعلية المباشرة.
+        <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-3xl leading-relaxed">
+          جميع الدروس مزودة ببروتوكول حماية العلامة المائية الجنائية، واختبارات فحص الفهم السريعة، وبيئات الكود والمحاكاة التفاعلية المباشرة داخل المتصفح.
         </p>
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+      <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 shadow-sm space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {/* Search Input */}
           <div className="md:col-span-2 relative">
-            <Search className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="ابحث بالعنوان، الكلمات المفتاحية، أو المدرب..."
-              className="w-full pr-10 pl-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:border-emerald-500"
+              className="w-full pr-11 pl-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm focus:outline-none focus:border-emerald-500 transition-colors"
             />
           </div>
 
@@ -80,7 +83,7 @@ function CoursesContent() {
             <select
               value={selectedLevel}
               onChange={(e) => setSelectedLevel(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
+              className="w-full px-4 py-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-700 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
             >
               <option value="all">كافة المستويات</option>
               <option value="beginner">مبتدئ (Beginner)</option>
@@ -90,10 +93,13 @@ function CoursesContent() {
           </div>
 
           {/* CQS Slider */}
-          <div className="flex flex-col justify-center px-2">
-            <div className="flex justify-between text-[11px] font-semibold text-slate-500 mb-1">
-              <span>أدنى درجة CQS:</span>
-              <span className="text-emerald-500 font-mono">{minCqs.toFixed(1)} / 10</span>
+          <div className="flex flex-col justify-center px-2 bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200/80 dark:border-slate-700">
+            <div className="flex justify-between text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+              <span className="flex items-center gap-1">
+                <SlidersHorizontal className="w-3.5 h-3.5 text-emerald-500" />
+                <span>أدنى درجة CQS:</span>
+              </span>
+              <span className="text-emerald-500 font-mono font-bold">{minCqs.toFixed(1)} / 10</span>
             </div>
             <input
               type="range"
@@ -108,25 +114,25 @@ function CoursesContent() {
         </div>
 
         {/* Tracks Filter Badges */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-1">
+        <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
           <button
             onClick={() => setSelectedTrack('all')}
-            className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
+            className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all btn-press ${
               selectedTrack === 'all'
-                ? 'bg-emerald-600 text-white'
-                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                ? 'bg-emerald-600 text-white shadow-md'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
             }`}
           >
-            جميع المسارات ({MOCK_COURSES.length})
+            جميع المسارات ({coursesList.length})
           </button>
           {TRACKS_INFO.map((track) => (
             <button
               key={track.id}
               onClick={() => setSelectedTrack(track.id)}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-colors ${
+              className={`px-4 py-2 rounded-xl text-xs font-bold whitespace-nowrap transition-all btn-press ${
                 selectedTrack === track.id
-                  ? 'bg-emerald-600 text-white'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
+                  ? 'bg-emerald-600 text-white shadow-md'
+                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
               }`}
             >
               {track.title}
@@ -140,7 +146,7 @@ function CoursesContent() {
         {filteredCourses.map((course) => (
           <div
             key={course.id}
-            className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-emerald-500/40 transition-all flex flex-col justify-between group"
+            className="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-sm hover:shadow-xl hover:border-emerald-500/40 transition-all flex flex-col justify-between group card-tactile"
           >
             <div>
               {/* Thumbnail Container */}
@@ -151,19 +157,19 @@ function CoursesContent() {
                   alt={course.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-bold text-emerald-400 border border-emerald-500/30">
+                <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-2.5 py-1 rounded-lg text-xs font-black text-emerald-400 border border-emerald-500/30">
                   CQS {course.cqsScore} ★
                 </div>
-                <div className="absolute bottom-3 right-3 bg-black/80 px-2.5 py-1 rounded-md text-[11px] font-mono text-white flex items-center gap-1.5">
+                <div className="absolute bottom-3 right-3 bg-black/80 backdrop-blur-md px-2.5 py-1 rounded-lg text-[11px] font-mono text-white flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-emerald-400" />
                   <span>{course.totalDurationMinutes} دقيقة إجمالية</span>
                 </div>
               </div>
 
               {/* Course Info */}
-              <div className="p-6 space-y-3">
+              <div className="p-6 space-y-3.5">
                 <div className="flex items-center gap-2 text-[11px] text-slate-400">
-                  <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">
+                  <span className="px-2 py-0.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold">
                     {course.level === 'beginner' ? 'مبتدئ' : course.level === 'intermediate' ? 'متوسط' : 'متقدم'}
                   </span>
                   <span>•</span>
@@ -184,11 +190,12 @@ function CoursesContent() {
                   <img
                     src={course.instructorAvatar}
                     alt={course.instructorName}
-                    className="w-8 h-8 rounded-full object-cover border border-emerald-500/30"
+                    className="w-9 h-9 rounded-xl object-cover border border-emerald-500/30 shadow-sm"
                   />
                   <div>
-                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 block">
-                      {course.instructorName}
+                    <span className="text-xs font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1">
+                      <span>{course.instructorName}</span>
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
                     </span>
                     <span className="text-[10px] text-slate-400 block truncate max-w-[200px]">
                       {course.instructorRole}
@@ -200,12 +207,13 @@ function CoursesContent() {
 
             {/* Course Footer & Link */}
             <div className="p-6 pt-0 border-t border-slate-100 dark:border-slate-800 mt-4 flex items-center justify-between">
-              <span className="text-xs text-slate-500">
-                {course.enrolledStudentsCount} متدرب مسجل
+              <span className="text-xs text-slate-500 flex items-center gap-1">
+                <Users className="w-3.5 h-3.5 text-slate-400" />
+                <span>{course.enrolledStudentsCount} متدرب مسجل</span>
               </span>
               <Link
                 href={`/watch/${course.id}`}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold shadow-md shadow-emerald-600/20 transition-all btn-press"
               >
                 <Play className="w-3.5 h-3.5 fill-current" />
                 <span>دخول المشغل</span>

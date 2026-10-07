@@ -33,7 +33,7 @@ export default function SkillPassportCard({ user, badges = MOCK_SKILL_BADGES, is
   };
 
   return (
-    <div className="relative overflow-hidden rounded-3xl border-2 border-emerald-500/30 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white p-6 md:p-8 shadow-2xl">
+    <div className="relative overflow-hidden rounded-3xl border-2 border-emerald-500/40 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white p-6 md:p-8 shadow-2xl hologram-sheen card-tactile">
       {/* Decorative background glow */}
       <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
