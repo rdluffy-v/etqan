@@ -70,10 +70,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
             try {
               setUser(JSON.parse(saved));
             } catch {
-              setUser(MOCK_USERS.trainee_academic);
+              setUser(MOCK_USERS.trainee_personal);
             }
           } else {
-            setUser(MOCK_USERS.trainee_academic); // Default to academic student for rich demo
+            setUser(MOCK_USERS.trainee_personal);
           }
         }
         setLoading(false);
@@ -87,11 +87,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         setUser(JSON.parse(saved));
       } catch {
-        setUser(MOCK_USERS.trainee_academic);
+        setUser(MOCK_USERS.trainee_personal);
       }
     } else {
-      // Default to Fatima Derbali (Academic Trainee) for immediate rich exploration
-      setUser(MOCK_USERS.trainee_academic);
+      setUser(MOCK_USERS.trainee_personal);
     }
     setLoading(false);
   }, []);
@@ -117,7 +116,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     const updated: UserProfile = {
       ...user,
       role,
-      fullName: role === 'instructor' ? 'م. خليل الزواوي' : role === 'corporate' ? 'شركة المدار التقني' : user.fullName,
+      fullName: role === 'instructor' ? 'م. خليل الزواوي' : role === 'corporate' ? 'شركة المدار التقني' : role === 'admin' ? 'مدير المنظومة التنفيذي' : 'أحمد الفيتوري',
       cqsRating: role === 'instructor' ? 9.8 : undefined,
     };
     saveUserSession(updated);

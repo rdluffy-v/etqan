@@ -6,7 +6,8 @@
   --color-primary: #059669;
   --color-primary-dark: #047857;
   --color-accent: #0284c7;
-  --font-sans: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: var(--font-heading), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: var(--font-mono), monospace;
 }
 
@@ -34,24 +35,34 @@
 html {
   direction: rtl;
   scroll-behavior: smooth;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: var(--font-cairo), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
+  line-height: 1.55;
+  letter-spacing: 0;
   transition: background-color 0.25s var(--ease-out), color 0.25s var(--ease-out);
   overflow-x: hidden;
 }
 
+/* Headings font pairing (IBM Plex Sans Arabic) with tight, natural line-heights */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: var(--font-heading), var(--font-sans), sans-serif;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
 /* Custom High-Fidelity Scrollbars */
 ::-webkit-scrollbar {
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -65,14 +76,6 @@ body {
 
 .dark ::-webkit-scrollbar-thumb {
   background: #334155;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
 }
 
 /* Glassmorphism & Surface Tokens */
@@ -92,20 +95,6 @@ body {
   box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.35);
 }
 
-.glass-pill {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.dark .glass-pill {
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
 /* Anti-recording overlay */
 .anti-record-blur {
   filter: blur(28px) grayscale(80%);
@@ -118,6 +107,7 @@ body {
   transition: transform 160ms var(--ease-out), background-color 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
   cursor: pointer;
   user-select: none;
+  min-height: 40px;
 }
 
 .btn-press:active {
@@ -129,8 +119,10 @@ body {
   will-change: transform;
 }
 
-.card-tactile:hover {
-  transform: translateY(-3px);
+@media (min-width: 768px) {
+  .card-tactile:hover {
+    transform: translateY(-3px);
+  }
 }
 
 /* Foil Hologram Sheen for Passport Cards */

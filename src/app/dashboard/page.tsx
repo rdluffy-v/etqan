@@ -48,21 +48,19 @@ export default function DashboardPage() {
           <img
             src={user.avatarUrl}
             alt={user.fullName}
-            className="w-16 h-16 rounded-2xl object-cover border-2 border-emerald-500/50 shadow-md"
+            className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl object-cover border-2 border-emerald-500/50 shadow-md"
           />
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                أهلاً، {user.fullName}
+              <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white">
+                {user.fullName}
               </h1>
-              {user.isVerified && (
-                <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
-                  {user.verificationType.startsWith('academic') ? 'أكاديمي موثق' : 'متدرب معتمد'}
-                </span>
-              )}
+              <span className="px-2 py-0.5 rounded text-[11px] font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30">
+                حساب نشط
+              </span>
             </div>
-            <p className="text-xs text-slate-500 mt-1">
-              {user.academicInstitution ? `${user.academicInstitution} • الرقم: ${user.studentIdNumber}` : 'مسار التدريب التقني والمهني الحر'}
+            <p className="text-xs text-slate-500 mt-1 font-medium">
+              مسار التدريب التقني وبناء الكفاءات المعتمدة
             </p>
           </div>
         </div>

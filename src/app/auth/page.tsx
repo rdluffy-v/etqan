@@ -133,8 +133,8 @@ export default function AuthPage() {
           >
             <GraduationCap className="w-4 h-4 text-emerald-400 flex-shrink-0" />
             <div className="truncate">
-              <span className="block text-white truncate">فاطمة الدربالي</span>
-              <span className="text-[10px] text-slate-400">طالبة أكاديمية موثقة</span>
+              <span className="block text-white truncate">حساب أكاديمي</span>
+              <span className="text-[10px] text-slate-400">مسار الكليات والمعاهد</span>
             </div>
           </button>
 

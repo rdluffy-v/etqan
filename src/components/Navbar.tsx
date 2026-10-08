@@ -43,8 +43,8 @@ export default function Navbar() {
 
   const roleLabels: Record<UserRole, { label: string; badge: string; color: string; dot: string }> = {
     trainee: {
-      label: user?.verificationType?.startsWith('academic') ? 'متدرب أكاديمي موثق' : 'متدرب شخصي',
-      badge: user?.verificationType?.startsWith('academic') ? 'أكاديمي' : 'شخصي',
+      label: 'متدرب معتمد',
+      badge: 'متدرب',
       color: 'bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/30',
       dot: 'bg-emerald-500',
     },
@@ -233,6 +233,24 @@ export default function Navbar() {
                         <CheckCircle2 className="w-4 h-4 text-sky-500" />
                       )}
                     </button>
+
+                    <button
+                      onClick={() => { switchRole('admin'); setRoleDropdownOpen(false); router.push('/admin'); }}
+                      className="w-full text-right px-3.5 py-2.5 rounded-xl text-xs flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/80 text-slate-700 dark:text-slate-200 transition-colors btn-press"
+                    >
+                      <span className="flex items-center gap-2.5">
+                        <div className="w-7 h-7 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-600 dark:text-purple-400">
+                          <ShieldCheck className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <div className="font-bold">لوحة الإدارة والتحكم (Admin)</div>
+                          <div className="text-[10px] text-slate-400">تحكم وإدارة كاملة بمحتوى المنصة</div>
+                        </div>
+                      </span>
+                      {user?.role === 'admin' && (
+                        <CheckCircle2 className="w-4 h-4 text-purple-500" />
+                      )}
+                    </button>
                   </div>
                 </div>
               )}
@@ -340,7 +358,7 @@ export default function Navbar() {
 
             <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-2">
               <span className="text-[11px] font-bold text-slate-400 px-2 block">تبديل الدور للتجربة الفورية:</span>
-              <div className="grid grid-cols-3 gap-2 px-1">
+              <div className="grid grid-cols-4 gap-1.5 px-1">
                 <button
                   onClick={() => { switchRole('trainee'); setMobileMenuOpen(false); router.push('/dashboard'); }}
                   className={`text-xs py-2 rounded-xl border text-center font-bold btn-press ${user?.role === 'trainee' ? 'border-emerald-500 bg-emerald-500/10 text-emerald-600' : 'border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300'}`}
@@ -358,6 +376,12 @@ export default function Navbar() {
                   className={`text-xs py-2 rounded-xl border text-center font-bold btn-press ${user?.role === 'corporate' ? 'border-sky-500 bg-sky-500/10 text-sky-600' : 'border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300'}`}
                 >
                   شركات
+                </button>
+                <button
+                  onClick={() => { switchRole('admin'); setMobileMenuOpen(false); router.push('/admin'); }}
+                  className={`text-xs py-2 rounded-xl border text-center font-bold btn-press ${user?.role === 'admin' ? 'border-purple-500 bg-purple-500/10 text-purple-600' : 'border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300'}`}
+                >
+                  الإدارة
                 </button>
               </div>
             </div>

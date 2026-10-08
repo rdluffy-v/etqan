@@ -1,0 +1,50 @@
+{
+  "name": "منظومة إتقان - المنصة الوطنية لبناء الكفاءات والربط الوظيفي",
+  "short_name": "إتقان",
+  "description": "المنصة التقنية الأولى المتخصصة في التدريب العملي المعتمد برعاية حاضنة بوصلة الجيل التقني بطرابلس",
+  "start_url": "/",
+  "id": "/",
+  "display": "standalone",
+  "background_color": "#070a12",
+  "theme_color": "#059669",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "categories": ["education", "productivity", "business"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "المسارات والدورات",
+      "url": "/courses",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "الورش الميدانية بالحاضنة",
+      "url": "/workshops",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "لوحة التحكم",
+      "url": "/admin",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

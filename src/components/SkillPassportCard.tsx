@@ -10,7 +10,6 @@ import {
   QrCode, 
   Share2, 
   Check, 
-  GraduationCap, 
   Sparkles,
   ExternalLink
 } from 'lucide-react';
@@ -108,12 +107,10 @@ export default function SkillPassportCard({ user, badges = MOCK_SKILL_BADGES, is
               {user.email}
             </p>
 
-            {user.academicInstitution && (
-              <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-medium pt-1">
-                <GraduationCap className="w-4 h-4" />
-                <span>{user.academicInstitution} ({user.studentIdNumber})</span>
-              </div>
-            )}
+            <div className="flex items-center gap-1.5 text-xs text-emerald-400 font-medium pt-1">
+              <ShieldCheck className="w-4 h-4" />
+              <span>معتمد في منظومة إتقان التقنية</span>
+            </div>
 
             <div className="flex items-center gap-3 pt-2 text-xs">
               <span className="px-2 py-0.5 rounded-md bg-slate-800 text-slate-300">
