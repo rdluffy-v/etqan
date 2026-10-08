@@ -65,11 +65,11 @@ export default function RootLayout({
       className={`${readexPro.variable} ${ibmPlexArabic.variable} ${jetbrainsMono.variable}`} 
       suppressHydrationWarning
     >
-      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans selection:bg-emerald-500 selection:text-white pb-16 lg:pb-0">
+      <body className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 antialiased font-sans selection:bg-emerald-500 selection:text-white pb-20 lg:pb-0 overflow-x-hidden w-full max-w-full">
         <ThemeProvider>
           <AuthProvider>
             <Navbar />
-            <main className="flex-1">{children}</main>
+            <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
             <Footer />
             <MobileBottomNav />
             <PwaInstallPrompt />

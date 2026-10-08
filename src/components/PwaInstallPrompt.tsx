@@ -88,7 +88,7 @@ export default function PwaInstallPrompt() {
   return (
     <>
       {/* Floating Bottom Install Banner */}
-      <div className="fixed bottom-20 lg:bottom-6 right-4 left-4 sm:right-auto sm:left-6 z-50 sm:max-w-md modal-enter">
+      <div className="fixed bottom-24 lg:bottom-6 right-3 left-3 sm:right-auto sm:left-6 z-50 sm:max-w-md modal-enter">
         <div className="rounded-2xl p-4 bg-slate-900/95 text-white border border-emerald-500/40 shadow-2xl backdrop-blur-xl flex items-center justify-between gap-3">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white shadow-md flex-shrink-0">

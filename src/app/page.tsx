@@ -89,40 +89,40 @@ export default function HomePage() {
   };
 
   return (
-    <div className="space-y-24 md:space-y-32 pb-24 overflow-x-hidden">
+    <div className="space-y-16 sm:space-y-24 md:space-y-32 pb-24 overflow-x-hidden w-full max-w-full">
       {/* 1. Hero Section - Ultra Craft */}
-      <section className="relative pt-10 md:pt-16 lg:pt-20">
-        {/* Ambient Gradient Glow Orbs */}
-        <div className="absolute top-1/4 -right-24 w-[32rem] h-[32rem] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute top-1/3 -left-24 w-[30rem] h-[30rem] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative pt-6 sm:pt-10 md:pt-16 lg:pt-20 overflow-hidden w-full max-w-full">
+        {/* Ambient Gradient Glow Orbs (contained & hidden on small screens) */}
+        <div className="hidden sm:block absolute top-1/4 -right-24 w-[32rem] h-[32rem] bg-emerald-500/15 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="hidden sm:block absolute top-1/3 -left-24 w-[30rem] h-[30rem] bg-sky-500/15 dark:bg-sky-500/10 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center space-y-6 max-w-4xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full min-w-0">
+          <div className="text-center space-y-5 sm:space-y-6 max-w-4xl mx-auto min-w-0">
             {/* Incubator Official Partnership Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-500/10 dark:bg-emerald-950/60 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-bold shadow-sm">
-              <span className="flex h-2 w-2 relative">
+            <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-emerald-500/10 dark:bg-emerald-950/60 border border-emerald-500/30 text-emerald-800 dark:text-emerald-300 text-xs sm:text-sm font-bold shadow-sm max-w-full">
+              <span className="flex h-2 w-2 relative flex-shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <Sparkles className="w-4 h-4 text-emerald-500 flex-shrink-0" />
-              <span>رعاية رسمية وتنسيق ميداني من «حاضنة بوصلة الجيل التقني»</span>
+              <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500 flex-shrink-0" />
+              <span className="truncate">رعاية رسمية وتنسيق ميداني من «حاضنة بوصلة الجيل التقني»</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.2]">
+            <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black text-slate-900 dark:text-white tracking-tight leading-[1.2] px-1">
               منظومة <span className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 bg-clip-text text-transparent">«إتقان»</span> الوطنية: الكفاءة الحقيقية والاعتماد الميداني
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+            <p className="text-sm sm:text-lg lg:text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal px-2">
               المنصة الليبية الأولى المتكاملة لتمكين شباب الوطن: دروس مصغرة فائقة الجودة (<span className="text-emerald-600 dark:text-emerald-400 font-bold">≤ 20 دقيقة</span>) بمعيار CQS، مشغل فيديو آمن بعلامات مائية جنائية، ورش عمل تطبيقية بمقر الحاضنة، وجواز مهارات رقمي موثق ومربوط بسوق العمل.
             </p>
 
-            {/* Primary Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center gap-3.5 pt-2">
+            {/* Primary Action Buttons (Responsive Mobile-First) */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 pt-2 max-w-xs sm:max-w-none mx-auto w-full">
               <Link
                 href="/courses"
-                className="flex items-center gap-2.5 px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-emerald-600/25 transition-all hover:scale-[1.02] btn-press"
+                className="flex items-center justify-center gap-2.5 px-6 py-3.5 sm:py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm sm:text-base shadow-xl shadow-emerald-600/25 transition-all btn-press w-full sm:w-auto"
               >
                 <span>استكشف المسارات والدورات</span>
                 <ArrowLeft className="w-4 h-4" />
@@ -130,7 +130,7 @@ export default function HomePage() {
 
               <Link
                 href="/workshops"
-                className="flex items-center gap-2 px-6 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-900 dark:text-white font-bold text-sm sm:text-base shadow-sm transition-all btn-press"
+                className="flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-900 dark:text-white font-bold text-sm sm:text-base shadow-sm transition-all btn-press w-full sm:w-auto"
               >
                 <MapPin className="w-4 h-4 text-emerald-500" />
                 <span>الورش الميدانية بالحاضنة</span>
@@ -138,7 +138,7 @@ export default function HomePage() {
 
               <button
                 onClick={() => loginAsDemo('trainee_personal')}
-                className="flex items-center gap-2 px-5 py-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-bold transition-all btn-press"
+                className="flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-2xl bg-slate-100 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm font-bold transition-all btn-press w-full sm:w-auto"
                 title="تجربة فورية لمنظومة إتقان"
               >
                 <GraduationCap className="w-4 h-4 text-emerald-500" />
@@ -148,43 +148,43 @@ export default function HomePage() {
           </div>
 
           {/* Interactive Audience Tabs & Live Interactive Showcase */}
-          <div className="mt-14 max-w-5xl mx-auto">
+          <div className="mt-10 sm:mt-14 max-w-5xl mx-auto w-full min-w-0">
             {/* Tab selector */}
-            <div className="flex items-center justify-center gap-2 p-1.5 rounded-2xl bg-slate-200/60 dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 max-w-lg mx-auto mb-8">
+            <div className="grid grid-cols-3 gap-1 sm:gap-2 p-1 sm:p-1.5 rounded-2xl bg-slate-200/60 dark:bg-slate-900/80 border border-slate-300/60 dark:border-slate-800 max-w-lg mx-auto mb-8 w-full">
               <button
                 onClick={() => setHeroAudienceTab('trainee')}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all btn-press ${
+                className={`flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-xl text-[11px] sm:text-sm font-bold transition-all btn-press min-w-0 ${
                   heroAudienceTab === 'trainee'
                     ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-md'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <GraduationCap className="w-4 h-4" />
-                <span>للطلاب والخريجين</span>
+                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="truncate">طلاب وخريجون</span>
               </button>
 
               <button
                 onClick={() => setHeroAudienceTab('corporate')}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all btn-press ${
+                className={`flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-xl text-[11px] sm:text-sm font-bold transition-all btn-press min-w-0 ${
                   heroAudienceTab === 'corporate'
                     ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-md'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <Building2 className="w-4 h-4" />
-                <span>للشركات والتوظيف</span>
+                <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="truncate">شركات وتوظيف</span>
               </button>
 
               <button
                 onClick={() => setHeroAudienceTab('instructor')}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold transition-all btn-press ${
+                className={`flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-xl text-[11px] sm:text-sm font-bold transition-all btn-press min-w-0 ${
                   heroAudienceTab === 'instructor'
                     ? 'bg-white dark:bg-slate-800 text-amber-600 dark:text-amber-400 shadow-md'
                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                 }`}
               >
-                <Award className="w-4 h-4" />
-                <span>للمدربين والخبراء</span>
+                <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                <span className="truncate">مدربون وخبراء</span>
               </button>
             </div>
 
@@ -536,7 +536,7 @@ export default function HomePage() {
             </div>
 
             {/* Track Filter Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none w-full max-w-full min-w-0">
               <button
                 onClick={() => setSelectedTrack('all')}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap btn-press ${

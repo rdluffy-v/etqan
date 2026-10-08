@@ -21,7 +21,6 @@ import {
   ChevronDown,
   GraduationCap,
   Award,
-  IdCard,
   CheckCircle2
 } from 'lucide-react';
 import { UserRole } from '@/lib/types';
@@ -71,17 +70,17 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200/80 dark:border-slate-800/80 bg-white/85 dark:bg-slate-950/85 backdrop-blur-xl transition-all">
       {/* Top Incubator Trust Banner */}
-      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 text-white text-[11px] sm:text-xs py-1.5 px-4 shadow-sm">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 font-medium">
-            <span className="bg-white/20 px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-bold tracking-wide">
+      <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-sky-600 text-white text-[11px] sm:text-xs py-1.5 px-3 sm:px-4 shadow-sm overflow-hidden">
+        <div className="max-w-7xl mx-auto flex items-center justify-between min-w-0">
+          <div className="flex items-center gap-1.5 sm:gap-2 font-medium min-w-0 overflow-hidden">
+            <span className="bg-white/20 px-1.5 sm:px-2 py-0.5 rounded-full text-[9px] sm:text-[11px] font-bold tracking-wide flex-shrink-0">
               رعاية رسمية
             </span>
-            <span className="truncate">
-              بإشراف واعتماد حاضنة <strong>«بوصلة الجيل التقني»</strong> لبناء وتوظيف الكفاءات الوطنية
+            <span className="truncate text-[10px] sm:text-xs">
+              بإشراف واعتماد حاضنة <strong>«بوصلة الجيل التقني»</strong> لبناء وتوظيف الكفاءات
             </span>
           </div>
-          <div className="hidden sm:flex items-center gap-3 text-[11px] opacity-95">
+          <div className="hidden sm:flex items-center gap-3 text-[11px] opacity-95 flex-shrink-0">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
               منظومة إتقان 2.0 • Vercel Edge CDN & Cloudflare D1
@@ -90,24 +89,24 @@ export default function Navbar() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 min-w-0">
           {/* Logo & Brand Identity */}
-          <div className="flex items-center gap-3 sm:gap-6">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-sky-500 flex items-center justify-center text-white shadow-lg shadow-emerald-500/25 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200">
-                <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="flex items-center gap-2 sm:gap-6 flex-shrink-0">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3 group flex-shrink-0">
+              <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-sky-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/25 group-hover:scale-105 group-hover:rotate-1 transition-all duration-200">
+                <Sparkles className="w-4 h-4 sm:w-6 sm:h-6" />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
+                <div className="flex items-center gap-1 sm:gap-1.5">
+                  <span className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                     إتقان
                   </span>
-                  <span className="text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
+                  <span className="hidden sm:inline text-[10px] px-1.5 py-0.2 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20">
                     v2.0
                   </span>
                 </div>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider -mt-0.5">
+                <span className="hidden sm:inline text-[10px] text-slate-500 dark:text-slate-400 font-medium tracking-wider -mt-0.5">
                   ETQAN • منظومة الكفاءات
                 </span>
               </div>
@@ -149,20 +148,20 @@ export default function Navbar() {
           </div>
 
           {/* Quick Demo Role Switcher, Profile, Theme Toggle */}
-          <div className="flex items-center gap-2.5 sm:gap-3.5">
+          <div className="flex items-center gap-1.5 sm:gap-3 flex-shrink-0">
             {/* Quick Demo Switcher */}
             <div className="relative">
               <button
                 onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
-                className={`flex items-center gap-2 px-3 py-1.5 rounded-xl border text-xs font-bold transition-all shadow-sm ${
+                className={`flex items-center gap-1.5 px-2 sm:px-3 py-1.5 rounded-xl border text-[11px] sm:text-xs font-bold transition-all shadow-sm ${
                   user ? roleLabels[user.role].color : 'border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300'
                 } hover:shadow-md btn-press`}
                 title="تبديل الدور للتجربة الفورية (Demo)"
               >
-                <span className={`w-2 h-2 rounded-full ${user ? roleLabels[user.role].dot : 'bg-slate-400'} animate-pulse`} />
-                <span className="hidden sm:inline">الدور:</span>
-                <span>{user ? roleLabels[user.role].label : 'تجربة الأدوار'}</span>
-                <ChevronDown className="w-3.5 h-3.5 opacity-70" />
+                <span className={`w-2 h-2 rounded-full ${user ? roleLabels[user.role].dot : 'bg-slate-400'} animate-pulse flex-shrink-0`} />
+                <span className="hidden sm:inline">الدور: {user ? roleLabels[user.role].label : 'تجربة الأدوار'}</span>
+                <span className="sm:hidden">{user ? roleLabels[user.role].badge : 'الأدوار'}</span>
+                <ChevronDown className="w-3 h-3 sm:w-3.5 sm:h-3.5 opacity-70 flex-shrink-0" />
               </button>
 
               {roleDropdownOpen && (
@@ -189,7 +188,7 @@ export default function Navbar() {
                           <GraduationCap className="w-4 h-4" />
                         </div>
                         <div>
-                          <div className="font-bold">متدرب أكاديمي / حر</div>
+                          <div className="font-bold">متدرب معتمد</div>
                           <div className="text-[10px] text-slate-400">لوحة المهارات والجواز الرقمي</div>
                         </div>
                       </span>
@@ -259,31 +258,32 @@ export default function Navbar() {
             {/* Dark / Light Theme Button */}
             <button
               onClick={toggleTheme}
-              className="p-2 sm:p-2.5 rounded-xl text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors btn-press"
+              className="p-1.5 sm:p-2.5 rounded-xl text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors btn-press flex-shrink-0"
               title="تبديل المظهر (Dark / Light)"
               aria-label="تبديل المظهر"
             >
               {theme === 'dark' ? (
-                <Sun className="w-5 h-5 text-amber-400" />
+                <Sun className="w-4 h-4 sm:w-5 sm:h-5 text-amber-400" />
               ) : (
-                <Moon className="w-5 h-5 text-slate-700" />
+                <Moon className="w-4 h-4 sm:w-5 sm:h-5 text-slate-700" />
               )}
             </button>
 
             {/* Profile or Login */}
             {user ? (
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <Link
-                  href={user.role === 'instructor' ? '/instructor' : user.role === 'corporate' ? '/corporate' : '/dashboard'}
-                  className="flex items-center gap-2.5 p-1.5 pr-3 rounded-2xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/50 transition-all btn-press"
+                  href={user.role === 'admin' ? '/admin' : user.role === 'instructor' ? '/instructor' : user.role === 'corporate' ? '/corporate' : '/dashboard'}
+                  className="flex items-center gap-2 p-1 sm:p-1.5 sm:pr-3 rounded-xl sm:rounded-2xl bg-slate-100/90 dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800/80 hover:border-emerald-500/50 transition-all btn-press flex-shrink-0"
+                  title={user.fullName}
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={user.avatarUrl}
                     alt={user.fullName}
-                    className="w-8 h-8 rounded-xl object-cover border-2 border-emerald-500/40 shadow-sm"
+                    className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl object-cover border border-emerald-500/40 shadow-sm flex-shrink-0"
                   />
-                  <div className="hidden sm:flex flex-col text-right">
+                  <div className="hidden md:flex flex-col text-right">
                     <span className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate max-w-[120px]">
                       {user.fullName}
                     </span>
@@ -294,17 +294,9 @@ export default function Navbar() {
                   </div>
                 </Link>
 
-                <Link
-                  href="/passport/demo-user-123"
-                  className="hidden md:flex p-2.5 rounded-xl text-slate-500 hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors btn-press"
-                  title="عرض جواز المهارات الرقمي الموثق"
-                >
-                  <IdCard className="w-4 h-4" />
-                </Link>
-
                 <button
                   onClick={logout}
-                  className="p-2.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-colors btn-press"
+                  className="hidden sm:flex p-2 sm:p-2.5 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-colors btn-press"
                   title="تسجيل الخروج"
                 >
                   <LogOut className="w-4 h-4" />
@@ -313,20 +305,21 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/auth"
-                className="flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-emerald-600/20 transition-all btn-press"
+                className="flex items-center gap-1 px-2.5 sm:px-5 py-1.5 sm:py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs sm:text-sm font-bold shadow-md shadow-emerald-600/20 transition-all btn-press flex-shrink-0"
               >
-                <User className="w-4 h-4" />
-                <span>دخول / تسجيل</span>
+                <User className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                <span className="hidden sm:inline">دخول / تسجيل</span>
+                <span className="sm:hidden">دخول</span>
               </Link>
             )}
 
             {/* Mobile Drawer Trigger */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 btn-press"
+              className="lg:hidden p-1.5 sm:p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 btn-press flex-shrink-0"
               aria-label="القائمة الرئيسية"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
