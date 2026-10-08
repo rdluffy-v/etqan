@@ -4,7 +4,6 @@ import './globals.css';
 import { AuthProvider } from '@/lib/auth-context';
 import { ThemeProvider } from '@/lib/theme-context';
 import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
 import MobileBottomNav from '@/components/MobileBottomNav';
 import PwaInstallPrompt from '@/components/PwaInstallPrompt';
 
@@ -70,7 +69,6 @@ export default function RootLayout({
           <AuthProvider>
             <Navbar />
             <main className="flex-1 w-full max-w-full overflow-x-hidden">{children}</main>
-            <Footer />
             <MobileBottomNav />
             <PwaInstallPrompt />
           </AuthProvider>

@@ -35,6 +35,7 @@ import { useAuth } from '@/lib/auth-context';
 import { bookWorkshopSeat, fetchCourses, fetchWorkshops } from '@/lib/d1';
 import { OfflineWorkshop, WorkshopTicket, Course } from '@/lib/types';
 import WorkshopTicketModal from '@/components/WorkshopTicketModal';
+import Footer from '@/components/Footer';
 
 export default function HomePage() {
   const { user, loginAsDemo } = useAuth();
@@ -933,6 +934,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Footer exclusively on Home page */}
+      <Footer />
 
       {/* Workshop Ticket Modal if booked */}
       {selectedTicket && (

@@ -83,7 +83,7 @@ export default function Navbar() {
           <div className="hidden sm:flex items-center gap-3 text-[11px] opacity-95 flex-shrink-0">
             <span className="flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" />
-              منظومة إتقان 2.0 • Vercel Edge CDN & Cloudflare D1
+              منظومة إتقان • تدريب مهني وتطبيقي معتمد
             </span>
           </div>
         </div>
